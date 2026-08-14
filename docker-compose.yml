@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  os-dev:
+    build: .
+    volumes:
+      - .:/kernel
+    working_dir: /kernel
+    command: make run
+    # For headless testing:
+    # command: make && timeout 10 qemu-system-i386 -cdrom os.iso -nographic -serial stdio -no-reboot || true
